@@ -7,12 +7,12 @@
 # structure in v8 which may be different from version to another, but user
 # can specify the v8 version by AUTOV8_VERSION, too.
 #-----------------------------------------------------------------------------#
-AUTOV8_VERSION = 7.4.288.28
+AUTOV8_VERSION = 7.8.279.23
 AUTOV8_DIR = build/v8
 AUTOV8_OUT = build/v8/out.gn/x64.release/obj
 AUTOV8_DEPOT_TOOLS = build/depot_tools
 AUTOV8_LIB = $(AUTOV8_OUT)/libv8_snapshot.a
-AUTOV8_STATIC_LIBS = -lv8_base -lv8_snapshot -lv8_libplatform -lv8_libbase -lv8_libsampler
+AUTOV8_STATIC_LIBS = -lv8_base_without_compiler -lv8_snapshot -lv8_libplatform -lv8_libbase -lv8_libsampler -lv8_compiler -lv8_base_without_compiler
 export PATH := $(abspath $(AUTOV8_DEPOT_TOOLS)):$(PATH)
 
 SHLIB_LINK += -L$(AUTOV8_OUT) -L$(AUTOV8_OUT)/third_party/icu $(AUTOV8_STATIC_LIBS)
